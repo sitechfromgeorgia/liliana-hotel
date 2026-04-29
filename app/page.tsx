@@ -276,7 +276,7 @@ export default function Home() {
                     <span key={j} className="text-[#FFD93D] text-lg">★</span>
                   ))}
                 </div>
-                <p className="text-[#2D3436]/80 italic mb-4">"{review.text}"</p>
+                <p className="text-[#2D3436]/80 italic mb-4">&ldquo;{review.text}&rdquo;</p>
                 <div className="font-semibold text-[#2D3436]">— {review.name}</div>
               </div>
             ))}
