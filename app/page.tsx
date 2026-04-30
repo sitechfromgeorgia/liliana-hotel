@@ -1,8 +1,18 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 export default function Home() {
+  const [currentYear, setCurrentYear] = useState(2026);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <main className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#A8D8EA]/30">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#A8D8EA]/30 animate-fade-in">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <a href="#" className="text-xl font-bold text-[#2E86AB]">
@@ -36,13 +46,13 @@ export default function Home() {
       <section className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center pt-16">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1B4965] via-[#2E86AB] to-[#A8D8EA]" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 fade-in-up stagger-1 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in-up leading-tight">
             სასტუმრო ლილიანა
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 fade-in-up stagger-2">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 animate-fade-in-up delay-200">
             თქვენი სახლი ზღვასთან — ქობულეთი
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in-up stagger-3">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-400">
             <a
               href="tel:+995568808093"
               className="inline-flex items-center justify-center px-8 py-4 bg-[#F5A623] text-[#2D3436] font-bold rounded-xl hover:bg-[#e09513] transition-all hover:scale-105"
@@ -58,7 +68,7 @@ export default function Home() {
               <span className="mr-2">💬</span> WhatsApp
             </a>
           </div>
-          <div className="mt-12 flex flex-wrap justify-center gap-4 sm:gap-8">
+          <div className="mt-12 flex flex-wrap justify-center gap-4 sm:gap-8 animate-fade-in delay-500">
             {[
               { icon: '📶', label: 'WiFi' },
               { icon: '🚗', label: 'პარკინგი' },
@@ -83,7 +93,7 @@ export default function Home() {
               { num: '5წთ', label: 'ზღვამდე' },
               { num: '₾50-150', label: 'ღამე' },
             ].map((stat, i) => (
-              <div key={i} className="scroll-reveal">
+              <div key={i} className="animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
                 <div className="text-2xl sm:text-3xl font-bold text-[#2E86AB]">{stat.num}</div>
                 <div className="text-sm text-[#2D3436]/70 mt-1">{stat.label}</div>
               </div>
@@ -114,7 +124,7 @@ export default function Home() {
             ].map((service, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl p-6 md:p-8 card-shadow hover:translate-y-[-4px] hover:shadow-lg transition-all duration-300 scroll-reveal"
+                className="bg-white rounded-2xl p-6 md:p-8 card-shadow card-hover"
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
                 <h3 className="text-lg font-bold text-[#2D3436] mb-2">{service.title}</h3>
@@ -165,7 +175,7 @@ export default function Home() {
             ].map((room, i) => (
               <div
                 key={i}
-                className="bg-[#FDF6EC] rounded-2xl overflow-hidden card-shadow hover:shadow-xl transition-all duration-300 scroll-reveal"
+                className="bg-[#FDF6EC] rounded-2xl overflow-hidden card-shadow card-hover"
               >
                 <div className="h-48 bg-gradient-to-br from-[#A8D8EA] to-[#2E86AB] flex items-center justify-center">
                   <span className="text-6xl">🏨</span>
@@ -200,7 +210,7 @@ export default function Home() {
       <section id="location" className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="scroll-reveal">
+            <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2D3436] mb-6">
                 მდებარეობა
               </h2>
@@ -225,7 +235,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden border-2 border-[#A8D8EA] scroll-reveal">
+            <div className="rounded-2xl overflow-hidden border-2 border-[#A8D8EA]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.0!2d41.82!3d41.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQ5JzEyLjAiTiA0McKwNDknMTIuMCJF!5e0!3m2!1ska!2sge!4v1"
                 width="100%"
@@ -269,7 +279,7 @@ export default function Home() {
             ].map((review, i) => (
               <div
                 key={i}
-                className="bg-[#FDF6EC] rounded-2xl p-6 border-l-4 border-[#F5A623] scroll-reveal"
+                className="bg-[#FDF6EC] rounded-2xl p-6 border-l-4 border-[#F5A623]"
               >
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: review.rating }).map((_, j) => (
@@ -304,7 +314,7 @@ export default function Home() {
               href="https://wa.me/995568808093"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 transition-all border border-white/30 pulse-animation"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 transition-all border border-white/30 animate-pulse"
             >
               💬 WhatsApp-ში მოგვწერე
             </a>
@@ -394,7 +404,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-white/20 pt-8 text-center text-sm text-white/60">
-            <p>© 2025 სასტუმრო ლილიანა | შექმნილია SiTech-ის მიერ</p>
+            <p>© {currentYear} სასტუმრო ლილიანა | შექმნილია SiTech-ის მიერ</p>
           </div>
         </div>
       </footer>
