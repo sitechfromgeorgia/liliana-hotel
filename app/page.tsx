@@ -346,7 +346,7 @@ export default function Home() {
             
             <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-gray-100">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.816!2d41.775!3d41.821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!5e0!3m2!1ska!2sge!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.0!2d41.7755!3d41.8103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQ4JzM3LjEiTiA0McKwNDYnMzEuOCJF!5e0!3m2!1ska!2sge!4v1"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
